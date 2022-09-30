@@ -11,86 +11,34 @@
 
         <h1>Expressões Regulares<h1>
         <hr>
-        <h4>1. Usada para Buscas em texto.</h4>
-        <h4>2. Validações em campos.</h4>
-        <h4>3. Substituição de padrões em textos ou campos.</h4>
-        <hr>
 
-    <h2>Exemplos de Preg_Match_All</h2>
-    <h4>Buscando Numeros e Retornando a quantidade de numeros encontrados</h4>
-<?php
+    <h2>Exemplos</h2>
+    <hr>
+    <h4>Validando Numero de Telefone</h4>
+    <?PHP
+    $telefone1 = "11-96285-1513";
+    $telefone2 = "11-2467-1907";
+    $telefone3 = "11962851513";
+    $telefone4 = "1124671907";
+    $telefone5 = "125s848i55a7";
 
+    $patern = "/\d{2}[-]?\d{4,5}[-]?\d{4}/";
 
-    $texto = "Lorem ipsum dolor sit amet, consetetur sadipscing 4 elitr, sed diam 3 nonuimy eirmod tempor invidunt ut labore et dolore magna 1 aliquyam erat, 0 sed diam voluptua 1. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
+    echo "O Padrão é: <strong>$patern</strong><br>";
+    echo "A regra acima:<br>";
+    echo "1. Precisa ter 2 Numeros Iniciais<br>";
+    echo "2. (pode ter ou não o - )<br>";
+    echo "3. Precisa ter 4 ou 5 Numeros<br>";
+    echo "4. (pode ter ou não o - )<br>";
+    echo "5. Precisa ter 4 digitos<p>";
 
-    $patern = "/[0-9]/";
-
-
-
-    echo "Variavel texto = ".$texto."<p>";
-    echo "Variavel patern = ".$patern."<p>";
-
-
-    echo "Retrona a quantidade de numeros encontrados no texto: ".preg_match_all($patern, $texto);
-
-?>
-
-        <h4>Buscando uma validação numerica e retornando a quantidade encontrada.</h4>
-<?php
-
-
-    $texto = "Lorem ipsum dolor sit amet, 00 consetetur sadipscing 4 elitr, sed diam 3 nonuimy eirmod tempor invidunt ut labore et dolore magna 1 aliquyam erat, 00 sed diam voluptua 01. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
-
-    $patern = "/[0][0]/";
-
-
-
-    echo "Variavel texto = ".$texto."<p>";
-    echo "Variavel patern = ".$patern."<p>";
-
-
-    echo "Retrona a quantidade de numeros encontrados no texto: ".preg_match_all($patern, $texto);
-
-?>
-
-
-
-        <h4>Verifica se os seis primeiros caracteres são numeros e retorna a quantidade que passou na validação</h4>
-<?php
-
-
-        $numeros = "646 646 61648178 449 A16461644 316 A12D 31646164684 216 6464671 646 616 646 791 6473312 65184843 131646873 6497616181 63168684321 6898791 993164741 3841267992 68741618744 1649797131687 198719191";
-
-        $patern = "/[0-9]{6}/";
-
-
-
-    echo "Variavel texto = ".$numeros."<p>";
-    echo "Variavel patern = ".$patern."<p>";
-
-
-    echo "Retrona a quantidade de numeros encontrados no texto: ".preg_match_all($patern, $numeros);
-
-?>
-
-        <h4>Verifica se começa com numérico e os 6 primeiros caracteres são numeros e possue o tamanho de 6 caracteres e retorna a quantidade que passou na validação</h4>
-<?php
-
-
-        $numeros = "646646 61648178 545845 263485 449 A16461644 316 A12D 31646164684 216 6464671 646 616 646 791 6473312 65184843 131646873 6497616181 63168684321 6898791 993164741 3841267992 68741618744 1649797131687 198719191";
-
-            $patern = "/^[0-9]{6}$/";
-
-
-
-    echo "Variavel texto = ".$numeros."<p>";
-    echo "Variavel patern = ".$patern."<p>";
-
-
-    echo "Retrona a quantidade de numeros encontrados no texto: ".preg_match_all($patern, $numeros);
-
-?>
-
+    if(preg_match($patern,$telefone1) == true){ echo "<font color=green>Tel Valido</font> $telefone1<br>"; } else { echo "<font color=red>Tel Invalido</font> $telefone1"; }
+    if(preg_match($patern,$telefone2) == true){ echo "<font color=green>Tel Valido</font> $telefone2<br>"; } else { echo "<font color=red>Tel Invalido</font> $telefone2"; }
+    if(preg_match($patern,$telefone3) == true){ echo "<font color=green>Tel Valido</font> $telefone3<br>"; } else { echo "<font color=red>Tel Invalido</font> $telefone3"; }
+    if(preg_match($patern,$telefone4) == true){ echo "<font color=green>Tel Valido</font> $telefone4<br>"; } else { echo "<font color=red>Tel Invalido</font> $telefone4"; }
+    if(preg_match($patern,$telefone5) == true){ echo "<font color=green>Tel Valido</font> $telefone5<br>"; } else { echo "<font color=red>Tel Invalido</font> $telefone5"; }
+    ?>
+    <hr>
 
     </body>
 </html>
